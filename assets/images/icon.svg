@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="176px" height="176px" viewBox="0 0 176 176" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon</title>
+    <g id="icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="176" height="176"></rect>
+        <g id="awesome" transform="translate(38.000000, 62.000000)" fill="#448AFF" fill-rule="nonzero">
+            <path d="M99.9464572,23.6412556 L74.3351776,0 L70.7656612,3.94618839 L92.1827592,23.67713 L7.85293595,23.67713 L29.270034,3.94618839 L25.7005176,0 L0,23.6412556 L0,39.2286996 C0,46.2600897 6.74638587,52 15.0455113,52 L30.8584687,52 C39.1397466,52 45.90398,46.2600897 45.90398,39.2286996 L45.90398,28.9865471 L54.09602,28.9865471 L54.09602,39.2286996 C54.09602,46.2600897 60.8602534,52 69.1415313,52 L84.9544887,52 C93.2536141,52 100,46.2600897 100,39.2286996 L100,23.6412556 L99.9464572,23.6412556 Z" id="icon-Path"></path>
+        </g>
+    </g>
+</svg>

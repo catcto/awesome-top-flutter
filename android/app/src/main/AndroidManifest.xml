@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="top.awesome.awesome">
    <application
-        android:label="awesome"
+        android:label="AwesomeTop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
