@@ -49,8 +49,10 @@ class GithubTopicPage extends GetView<GithubTopicController> {
       ),
       drawer: const MainDrawer(),
       body: controller.obx(
-        (state) => Container(
-          padding: const EdgeInsets.all(10),
+        (state) => RefreshIndicator(
+          onRefresh: () async {
+            controller.getData();
+          },
           child: ListView.separated(
             itemCount: state!.result!.length,
             itemBuilder: (context, index) {

@@ -9,7 +9,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
               fontSize: 16.0,
             ),
         headline6: ThemeData.light().textTheme.headline6?.copyWith(
-              fontSize: 16.0,
+              fontSize: 18.0,
             ),
       ),
 );

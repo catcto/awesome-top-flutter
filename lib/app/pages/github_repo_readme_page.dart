@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 import '../model/model.dart';
 import '../services/services.dart';
@@ -48,11 +47,7 @@ class GithubRepoReadmePage extends GetView<GithubRepoReadmeController> {
       body: controller.obx(
         (state) => Container(
           padding: const EdgeInsets.all(10),
-          child:  Markdown(
-            imageDirectory: 'https://raw.githubusercontent.com',
-            selectable: true,
-            data: state!.result!.readme!.content!,
-          ),
+          child: SelectableText(state!.result!.readme!.content!),
         ),
         onLoading: const Center(
           child: CircularProgressIndicator(),

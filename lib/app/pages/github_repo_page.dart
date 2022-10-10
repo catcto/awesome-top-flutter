@@ -77,11 +77,6 @@ class GithubRepoPage extends GetView<GithubRepoController> {
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 const SizedBox(height: 12),
-                Text(
-                  state.result!.details!.description!,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const SizedBox(height: 12),
                 Row(
                   children: [
                     const Icon(
@@ -105,12 +100,80 @@ class GithubRepoPage extends GetView<GithubRepoController> {
                     )
                   ],
                 ),
+                const SizedBox(height: 20),
+                Text(
+                  state.result!.details!.description!,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
                 // const Padding(padding: EdgeInsets.symmetric(vertical: 6.0)),
                 // Text(
                 //   intl.DateFormat.yMMMd().format(DateTime.parse(state.result!.details!.updatedAt!)),
                 //   style: Theme.of(context).textTheme.bodyMedium,
                 // ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.fromLTRB(10, 4, 10, 4),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.WEBVIEW,
+                              arguments: {'title': state.result!.repo!, 'url': state.result!.url!});
+                        },
+                        icon: const Icon(
+                          // <-- Icon
+                          Icons.open_in_new,
+                          size: 24.0,
+                        ),
+                        label: Text('More'.tr), // <-- Text
+                      ),
+                    ),
+                    Obx(() {
+                      if (controller.homePage.isEmpty) {
+                        return Container();
+                      } else {
+                        return Container(
+                          margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                          child: OutlinedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.fromLTRB(10, 4, 10, 4),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                            onPressed: () {
+                              Get.toNamed(AppRoutes.WEBVIEW,
+                                  arguments: {'title': state.result!.repo!, 'url': state.result!.details!.homepage!});
+                            },
+                            child: Text('Home Page'.tr), // <-- Text
+                          ),
+                        );
+                      }
+                    }),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: OutlinedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.fromLTRB(10, 4, 10, 4),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.GITHUB_REPO_README,
+                              arguments: {'owner': state.result!.owner!, 'repo': state.result!.repo!});
+                        },
+                        child: Text('Readme.md'.tr), // <-- Text
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Divider(
+                  color: Theme.of(context).dividerTheme.color,
+                  endIndent: 12.5,
+                ),
+                const SizedBox(height: 10),
                 Wrap(
                   spacing: 6,
                   runSpacing: 6,
@@ -129,77 +192,6 @@ class GithubRepoPage extends GetView<GithubRepoController> {
                         child: Text(state.result!.details!.topics![index]),
                       );
                     },
-                  ),
-                ),
-                const Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
-                Divider(
-                  color: Theme.of(context).dividerTheme.color,
-                  endIndent: 12.5,
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  alignment: Alignment.center,
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    onPressed: () {
-                      Get.toNamed(AppRoutes.WEBVIEW,
-                          arguments: {'title': state.result!.repo!, 'url': state.result!.url!});
-                    },
-                    icon: const Icon(
-                      // <-- Icon
-                      Icons.open_in_new,
-                      size: 24.0,
-                    ),
-                    label: Text('Repository'.tr), // <-- Text
-                  ),
-                ),
-                Obx(() {
-                  if (controller.homePage.isEmpty) {
-                    return Container();
-                  } else {
-                    return Container(
-                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      alignment: Alignment.center,
-                      child: OutlinedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
-                        onPressed: () {
-                          Get.toNamed(AppRoutes.WEBVIEW,
-                              arguments: {'title': state.result!.repo!, 'url': state.result!.details!.homepage!});
-                        },
-                        icon: const Icon(
-                          // <-- Icon
-                          Icons.open_in_new,
-                          size: 24.0,
-                        ),
-                        label: Text('Home Page'.tr), // <-- Text
-                      ),
-                    );
-                  }
-                }),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  alignment: Alignment.center,
-                  child: OutlinedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    onPressed: () {
-                      Get.toNamed(AppRoutes.GITHUB_REPO_README,
-                          arguments: {'owner': state.result!.owner!, 'repo': state.result!.repo!});
-                    },
-                    icon: const Icon(
-                      // <-- Icon
-                      Icons.menu_book,
-                      size: 24.0,
-                    ),
-                    label: Text('Readme.md'.tr), // <-- Text
                   ),
                 ),
               ],

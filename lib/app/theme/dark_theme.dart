@@ -9,7 +9,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
               fontSize: 16.0,
             ),
         headline6: ThemeData.dark().textTheme.headline6?.copyWith(
-              fontSize: 16.0,
+              fontSize: 18.0,
             ),
       ),
 );
