@@ -2,7 +2,7 @@
 A Flutter project of awesome top list.
 
 ## Screenshot
-
+![](assets/screenshot/screenshot.png)
 
 ## Getting Started
 This project use Flutter 3.0.5
