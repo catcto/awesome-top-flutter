@@ -1,4 +1,4 @@
-package top.awesome.awesome
+package top.awesome.app
 
 import io.flutter.embedding.android.FlutterActivity
 

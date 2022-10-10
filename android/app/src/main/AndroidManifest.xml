@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="top.awesome.awesome">
+    package="top.awesome.app">
    <application
         android:label="AwesomeTop"
         android:name="${applicationName}"
